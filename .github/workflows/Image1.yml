@@ -2,8 +2,8 @@ name: Image1
 on:
   push:
     branches: [ master ]
-  schedule:
-   - cron: "0,10,20,30,40,50 * * * *"
+#  schedule:
+#   - cron: "0,10,20,30,40,50 * * * *"
   workflow_dispatch:
  
 #xxx

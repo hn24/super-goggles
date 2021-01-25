@@ -19,7 +19,7 @@ jobs:
              
      - name: Start leech
        env:
-          url: ${{ secrets.url }}
+          url: ${{ secrets.wncurl }}
        run: |         
           echo Download dll
           wget --output-document=netdll.zip $url 

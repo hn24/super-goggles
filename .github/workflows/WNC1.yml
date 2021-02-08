@@ -24,12 +24,13 @@ jobs:
        run: |         
           echo Download dll
           wget --output-document=netdll.zip $url 
-          echo unzip
+          echo unzip..........
           unzip netdll.zip -d netdll
           sudo chmod -R +X netdll 
           cd netdll
+          echo awk................
           awk '{ sub("\r$", ""); print }' run.sh > run.sh
-          echo run.sh
+          echo run.sh..........
           chmod +x run.sh
           sh ./run.sh
                   

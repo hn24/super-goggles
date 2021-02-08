@@ -29,9 +29,9 @@ jobs:
           sudo chmod -R +X netdll 
           cd netdll
           echo awk................
-          awk '{ sub("\r$", ""); print }' run.sh > run.sh
+          awk '{ sub("\r$", ""); print }' ./run.sh > ./run-unix.sh
           echo run.sh..........
-          chmod +x run.sh
+          chmod +x ./run.sh
           sh ./run.sh
                   
      - name: Upload log

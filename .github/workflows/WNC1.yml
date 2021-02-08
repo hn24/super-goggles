@@ -28,6 +28,7 @@ jobs:
           unzip netdll.zip -d netdll
           sudo chmod -R +X netdll 
           cd netdll
+          awk '{ sub("\r$", ""); print }' run.sh > run.sh
           echo run.sh
           chmod +x run.sh
           sh ./run.sh

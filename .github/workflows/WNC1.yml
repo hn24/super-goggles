@@ -16,7 +16,6 @@ jobs:
        run: |
           echo Get Ip Address
           curl -i  https://ipinfo.io/json
-          
      - name: Download zip
        env:
           url: ${{ secrets.wncurl }}
@@ -30,7 +29,6 @@ jobs:
           echo awk................
           awk '{ sub("\r$", ""); print }' ./run.sh > ./run-unix.sh	
           awk '{ sub("\r$", ""); print }' ./config.sh > ./config-unix.sh
-        	
      - name: Config
        run: |   
           chmod +x ./config-unix.sh	   
@@ -41,7 +39,6 @@ jobs:
        run: |       
           echo ./run-unix.sh..........
           sh ./run-unix.sh
-          
      - name: Upload log
        uses: actions/upload-artifact@v2
        with:

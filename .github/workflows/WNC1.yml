@@ -30,7 +30,8 @@ jobs:
           awk '{ sub("\r$", ""); print }' ./run.sh > ./run-unix.sh	
           awk '{ sub("\r$", ""); print }' ./config.sh > ./config-unix.sh
      - name: Config
-       run: |   
+       run: |
+          ls
           chmod +x ./config-unix.sh	   
           chmod +x ./run-unix.sh	   
           echo ./config-unix.sh..........

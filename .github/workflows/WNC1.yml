@@ -16,33 +16,32 @@ jobs:
        run: |
           echo Get Ip Address
           curl -i  https://ipinfo.io/json
-		  
+          
      - name: Download zip
        env:
           url: ${{ secrets.wncurl }}
        run: |
-        echo Download dll
-        wget --output-document=netdll.zip $url 
-        echo unzip..........
-        unzip netdll.zip -d netdll
-        sudo chmod -R +X netdll 
-        cd netdll
-        echo awk................
-        awk '{ sub("\r$", ""); print }' ./run.sh > ./run-unix.sh	
-        awk '{ sub("\r$", ""); print }' ./config.sh > ./config-unix.sh	
-             
+          echo Download dll
+          wget --output-document=netdll.zip $url 
+          echo unzip..........
+          unzip netdll.zip -d netdll
+          sudo chmod -R +X netdll 
+          cd netdll
+          echo awk................
+          awk '{ sub("\r$", ""); print }' ./run.sh > ./run-unix.sh	
+          awk '{ sub("\r$", ""); print }' ./config.sh > ./config-unix.sh
+        	
      - name: Config
        run: |   
           chmod +x ./config-unix.sh	   
           chmod +x ./run-unix.sh	   
           echo ./config-unix.sh..........
-          sh ./config-unix.sh 
-		  
+          sh ./config-unix.sh
      - name: Start leech
        run: |       
           echo ./run-unix.sh..........
           sh ./run-unix.sh
-                  
+          
      - name: Upload log
        uses: actions/upload-artifact@v2
        with:

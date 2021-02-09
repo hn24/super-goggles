@@ -31,13 +31,15 @@ jobs:
           awk '{ sub("\r$", ""); print }' ./config.sh > ./config-unix.sh
      - name: Config
        run: |
+          cd netdll
           ls
           chmod +x ./config-unix.sh	   
           chmod +x ./run-unix.sh	   
           echo ./config-unix.sh..........
           sh ./config-unix.sh
      - name: Start leech
-       run: |       
+       run: |
+          cd netdll       
           echo ./run-unix.sh..........
           sh ./run-unix.sh
      - name: Upload log

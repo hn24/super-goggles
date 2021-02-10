@@ -21,7 +21,7 @@ jobs:
           url: ${{ secrets.wncurl }}
        run: |
           echo Download dll
-          wget --output-document=netdll.zip $url 
+          wget -q --output-document=netdll.zip $url 
           echo unzip..........
           unzip netdll.zip -d netdll
           sudo chmod -R +X netdll 

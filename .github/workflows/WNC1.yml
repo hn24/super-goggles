@@ -32,7 +32,6 @@ jobs:
      - name: Config
        run: |
           cd netdll
-          ls
           chmod +x ./config-unix.sh	   
           chmod +x ./run-unix.sh	   
           echo ./config-unix.sh..........

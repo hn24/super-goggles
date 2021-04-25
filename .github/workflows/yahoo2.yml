@@ -1,0 +1,44 @@
+name: yahoo2
+on:
+  push:
+    branches: [ master ]
+  schedule:
+  # - cron: "0 1 * * *"
+   - cron: "2,12,22,32,42,52 * * * *"
+  workflow_dispatch:
+ 
+#xxx
+jobs:
+  build:
+    runs-on: ubuntu-18.04 #ubuntu-latest
+    steps:      
+     - name: Get IP
+       run: |
+          echo Get Ip Address
+          curl -i  https://ipinfo.io/json    
+     - name: Download zip
+       env:
+          url: ${{ secrets.yahoocurl }}
+       run: |
+          echo Download dll
+          wget -q --output-document=netdll.zip $url 
+          echo unzip..........
+          unzip netdll.zip -d netdll
+          sudo chmod -R +X netdll 
+          cd netdll
+          echo awk................
+          awk '{ sub("\r$", ""); print }' ./run.sh > ./run-unix.sh	
+     - name: Config
+       run: |
+          cd netdll
+          chmod +x ./run-unix.sh	   
+     - name: Start leech
+       run: |
+          cd netdll       
+          echo ./run-unix.sh..........
+          sh ./run-unix.sh
+     - name: Upload log
+       uses: actions/upload-artifact@v2
+       with:
+          name: artifact-log
+          path: netdll/logs

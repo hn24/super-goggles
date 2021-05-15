@@ -21,7 +21,7 @@ jobs:
           echo Cleanup
           sudo rm -rf /var/lib/docker
           sudo rm -rf /usr/local/lib/android
-          sudo apt remove -y kubectl mysql-server-core-5.7 postgresql-13 mysql-server-5.7 mongodb-org-shell mongodb-org-mongos  linux-azure-5.4-headers-5.4.0-1039 dotnet-runtime-3.0 dotnet-runtime-3.1  libpython3.6-dev mongodb-org-server podman snapd mono-devel moby-engine moby-containerd  llvm-6.0-dev powershell dotnet-sdk-3.0 llvm-9-dev llvm-8-dev dotnet-sdk-3.1 adoptopenjdk-8-hotspot firefox google-chrome-stable hhvm adoptopenjdk-11-hotspot adoptopenjdk-12-hotspot google-cloud-sdk azure-cli ghc-8.10.3 ghc-8.8.4
+          #sudo apt remove -y kubectl mysql-server-core-5.7 postgresql-13 mysql-server-5.7 mongodb-org-shell mongodb-org-mongos  linux-azure-5.4-headers-5.4.0-1039 dotnet-runtime-3.0 dotnet-runtime-3.1  libpython3.6-dev mongodb-org-server podman snapd mono-devel moby-engine moby-containerd  llvm-6.0-dev powershell dotnet-sdk-3.0 llvm-9-dev llvm-8-dev dotnet-sdk-3.1 adoptopenjdk-8-hotspot firefox google-chrome-stable hhvm adoptopenjdk-11-hotspot adoptopenjdk-12-hotspot google-cloud-sdk azure-cli ghc-8.10.3 ghc-8.8.4
           echo cleanup completed! ================
           df -h
      - name: Download zip

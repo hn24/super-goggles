@@ -1,4 +1,4 @@
-name: WNC1
+name: Wibu
 on:
   push:
     branches: [ master ]
